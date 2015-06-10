@@ -1,0 +1,111 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <sebi.customviews.MasterToggleButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mtbAll"
+        android:onClick="onClickMTB"
+        android:textOff="All"
+        android:textOn="All"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbCenter"
+            android:onClick="onClickTB"
+            android:textOff="Center"
+            android:textOn="Center"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbSubwoofer"
+            android:onClick="onClickTB"
+            android:textOff="Subwoofer"
+            android:textOn="Subwoofer"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <sebi.customviews.MasterToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mtbFront"
+            android:onClick="onClickMTB"
+            android:textOff="Front"
+            android:textOn="Front"
+            android:layout_weight="1"/>
+
+        <sebi.customviews.MasterToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mtbRear"
+            android:onClick="onClickMTB"
+            android:textOff="Rear"
+            android:textOn="Rear"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbFrontLeft"
+            android:onClick="onClickTB"
+            android:textOff="Left"
+            android:textOn="Left"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbFrontRight"
+            android:onClick="onClickTB"
+            android:textOff="Right"
+            android:textOn="Right"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbRearLeft"
+            android:onClick="onClickTB"
+            android:textOff="Left"
+            android:textOn="Left"
+            android:layout_weight="1"/>
+
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tbRearRight"
+            android:onClick="onClickTB"
+            android:textOff="Right"
+            android:textOn="Right"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
