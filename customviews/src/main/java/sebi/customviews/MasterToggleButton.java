@@ -14,30 +14,26 @@ import java.util.ArrayList;
  */
 public class MasterToggleButton extends ToggleButton {
 
-    public ArrayList<ToggleButton> toggleButtonArrayList;
+    private ArrayList<ToggleButton> toggleButtonArrayList = new ArrayList<>();
     private boolean disableSlaves = false;
 
     public MasterToggleButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         parseAttributes(attrs);
-        toggleButtonArrayList = new ArrayList<>();
     }
 
     public MasterToggleButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         parseAttributes(attrs);
-        toggleButtonArrayList = new ArrayList<>();
     }
 
     public MasterToggleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         parseAttributes(attrs);
-        toggleButtonArrayList = new ArrayList<>();
     }
 
     public MasterToggleButton(Context context) {
         super(context);
-        toggleButtonArrayList = new ArrayList<>();
     }
 
     public void addSlaves(ToggleButton toggleButton) {
@@ -46,7 +42,7 @@ public class MasterToggleButton extends ToggleButton {
 
     @Override
     public boolean callOnClick() {
-        Log.d("test", "clicked");
+        Log.d("test", getClass().getName() + " clicked");
         return super.callOnClick();
 
     }
@@ -64,7 +60,6 @@ public class MasterToggleButton extends ToggleButton {
 
         for (int i = 0; i < toggleButtonArrayList.size(); i++) {
             if (value) {
-                //toggleButtonArrayList.get(i).setEnabled(false);
                 toggleButtonArrayList.get(i).setClickable(false);
                 if(toggleButtonArrayList.get(i) instanceof MasterToggleButton )
                 {
@@ -78,13 +73,25 @@ public class MasterToggleButton extends ToggleButton {
                 }
             }
         }
+    }
 
+    private void setChecked(boolean checked) {
+
+        for (int i = 0; i < mtbButton.toggleButtonArrayList.size(); i++) {
+            if (mtbButton.isChecked()) {
+                mtbButton.toggleButtonArrayList.get(i).setChecked(true);
+                mtbButton.toggleButtonArrayList.get(i).callOnClick();
+            } else {
+                mtbButton.toggleButtonArrayList.get(i).setChecked(false);
+                mtbButton.toggleButtonArrayList.get(i).callOnClick();
+            }
+        }
     }
 
     private void parseAttributes(AttributeSet attrs) {
         TypedArray a = getContext().obtainStyledAttributes(attrs,
                 R.styleable.MasterToggleButton);
-        disableSlaves = a.getBoolean(R.styleable.MasterToggleButton_disableSlaves, disableSlaves);
+        setDisableSlaves(a.getBoolean(R.styleable.MasterToggleButton_disableSlaves, disableSlaves));
         a.recycle();
     }
 }

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ToggleButton;
 
 import sebi.customviews.MasterToggleButton;
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         mtbFront.addSlaves(tbFrontRight);
         mtbRear.addSlaves(tbRearLeft);
         mtbRear.addSlaves(tbRearRight);
-
     }
 
     private void disableSlaves()
@@ -54,28 +54,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickMTB (View view)
     {
-        Log.d("test", "onClickMTB " + view.getId());
-
         MasterToggleButton mtbButton = (MasterToggleButton) view;
 
-        for(int i = 0; i < mtbButton.toggleButtonArrayList.size(); i++)
-        {
-            if (mtbButton.isChecked()) {
-                mtbButton.toggleButtonArrayList.get(i).setChecked(true);
-                mtbButton.toggleButtonArrayList.get(i).callOnClick();
-            }
-            else
-            {
-                mtbButton.toggleButtonArrayList.get(i).setChecked(false);
-                mtbButton.toggleButtonArrayList.get(i).callOnClick();
-            }
-        }
+        Log.d("test", "onClickMTB: " + mtbButton.getText());
+
 
     }
 
     public void onClickTB (View view)
     {
-        Log.d("test", "onClickTB " + view.getId());
+        Log.d("test", "onClickTB: " + ((Button) view).getText());
     }
 
 
